@@ -3,13 +3,20 @@ import cors from "cors";
 import { supabase } from "./conexion.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
 const handle = (res, data, error, status = 200) => {
-  if (error) return res.status(500).json({ message: error.message });
+  if (error) {
+    console.log("ERROR SUPABASE:", error);
+    return res.status(500).json({
+      message: error.message,
+      details: error
+    });
+  }
+
   return res.status(status).json(data);
 };
 
