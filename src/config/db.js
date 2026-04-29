@@ -6,6 +6,12 @@ dotenv.config();
 const { Pool } = pg;
 
 export const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  host: 'aws-1-us-west-2.pooler.supabase.com',
+  port: 5432,
+  database: 'postgres',
+  user: 'postgres.yoltegtlefnveazpwwsm',
+  password: 'asdsdbgsrtu',
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
