@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: crud-backend-supabase
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
